@@ -9,7 +9,7 @@ export function postExport(req: Request, res: Response): void {
     const { bookId, type }: { bookId: string, type: ExportTypes } = req.body;
 
     if (!bookId || typeof bookId !== 'string')
-        res.status(400).send('A book ID is required');
+        res.status(400).send('A valid book ID is required');
 
     else if (!type)
         res.status(400).send('An export type is required');

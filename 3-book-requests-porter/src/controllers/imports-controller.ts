@@ -9,7 +9,7 @@ export function postImport(req: Request, res: Response): void {
     const { bookId, type, url }: { bookId: string, type: ImportTypes, url: string } = req.body;
 
     if (!bookId || typeof bookId !== 'string')
-        res.status(400).send('A book ID is required');
+        res.status(400).send('A valid book ID is required');
 
     else if (!url || typeof url !== 'string')
         res.status(400).send('A url is required');
