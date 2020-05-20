@@ -1,6 +1,7 @@
 import Job, { JobState } from './Job';
+import { ImportTypes } from './importTypes';
 
-export type ImportTypes = 'word' | 'pdf' | 'wattpad' | 'evernote';
+export { JobState, ImportTypes };;
 
 export default class JobImport extends Job {
     bookId: string;

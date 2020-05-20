@@ -1,5 +1,6 @@
 import Job, { JobState } from './Job';
 
+export { JobState };
 export type ExportTypes = 'epub' | 'pdf';
 
 export default class JobExport extends Job {

@@ -2,6 +2,32 @@ import JobExport from './JobExport';
 import JobsServiceExport from './JobsServiceExport';
 
 jest.useFakeTimers();
+let dateMock, defaultDate, createdDate, updatedDate;
+
+beforeAll(() => {
+    defaultDate = new Date(2015, 2, 13, 9, 15, 40, 123);
+    createdDate = new Date(2016, 2, 13, 9, 15, 40, 123);
+    updatedDate = new Date(2017, 2, 13, 9, 15, 40, 123);
+    dateMock = jest.spyOn(global, 'Date').mockImplementation(() => defaultDate);
+})
+
+test('.add()', () => {
+    const service = new JobsServiceExport();
+    const addJob = jest.spyOn(service, 'addJob');
+    const job = service.add('def', 'pdf', createdDate, updatedDate, 'finished');
+
+    expect(addJob).toBeCalledTimes(1);
+    expect(addJob).lastCalledWith(job);
+
+    expect(job.bookId).toBe('def');
+    expect(job.type).toBe('pdf');
+
+    // Job fields
+    expect(job.id).toBeGreaterThan(0);
+    expect(job.created_at).toBe(createdDate);
+    expect(job.updated_at).toBe(updatedDate);
+    expect(job.state).toBe('finished');
+});
 
 describe('.addJob()', () => {
     test('The passed in job is added to stored jobs', () => {
