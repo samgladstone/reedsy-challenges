@@ -9,6 +9,11 @@
     "develop": "nodemon",
     "test": "jest"
   },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "clearMocks": true
+  },
   "dependencies": {
     "@types/express": "^4.17.6",
     "@types/node": "^14.0.4",
@@ -16,8 +21,11 @@
     "typescript": "^3.9.3"
   },
   "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "babel-jest": "^26.0.1",
     "jest": "^26.0.1",
     "nodemon": "^2.0.4",
+    "ts-jest": "^26.0.0",
     "ts-node": "^8.10.1",
     "tslint": "^6.1.2"
   }
