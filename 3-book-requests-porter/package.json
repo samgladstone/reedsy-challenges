@@ -1,0 +1,7 @@
+{
+  "name": "books-requests-porter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sam Gladstone",
+  "license": "MIT"
+}
