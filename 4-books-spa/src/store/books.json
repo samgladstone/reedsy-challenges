@@ -11,9 +11,9 @@
     "upvoted": false,
     "upvotes": 1264,
     "stores": {
-      "amazon": "https://www.amazon.co.uk/Book-Thief-Markus-Zusak/dp/0552773891",
-      "iBooks": "https://books.apple.com/gb/book/the-book-theif/id1078821147",
-      "playStore": "https://play.google.com/store/audiobooks/details/Markus_Zusak_The_Book_Thief?id=AQAAAEDgxmqGmM&hl=en"
+      "Amazon": "https://www.Amazon.co.uk/Book-Thief-Markus-Zusak/dp/0552773891",
+      "Apple Books": "https://books.apple.com/gb/book/the-book-theif/id1078821147",
+      "Play Store": "https://play.google.com/store/audiobooks/details/Markus_Zusak_The_Book_Thief?id=AQAAAEDgxmqGmM&hl=en"
     }
   },
   {
@@ -28,8 +28,8 @@
     "upvoted": false,
     "upvotes": 1388,
     "stores": {
-      "iBooks": "https://books.apple.com/gb/book/sum/id388400637",
-      "playStore": "https://play.google.com/store/books/details/David_Eagleman_Sum?id=0TYdCyyir2IC&hl=en"
+      "Apple Books": "https://books.apple.com/gb/book/sum/id388400637",
+      "Play Store": "https://play.google.com/store/books/details/David_Eagleman_Sum?id=0TYdCyyir2IC&hl=en"
     }
   },
   {
@@ -44,8 +44,8 @@
     "upvoted": false,
     "upvotes": 2424,
     "stores": {
-      "amazon": "https://www.amazon.co.uk/Humans-Matt-Haig/dp/1786894661",
-      "playStore": "https://play.google.com/store/books/details/Matt_Haig_The_Humans?id=4mZ1XoSpR9UC&hl=en"
+      "Amazon": "https://www.Amazon.co.uk/Humans-Matt-Haig/dp/1786894661",
+      "Play Store": "https://play.google.com/store/books/details/Matt_Haig_The_Humans?id=4mZ1XoSpR9UC&hl=en"
     }
   },
   {
@@ -60,8 +60,8 @@
     "upvoted": false,
     "upvotes": 2424,
     "stores": {
-      "amazon": "https://www.amazon.co.uk/Hydrogen-Sonata-Culture-Iain-Banks/dp/0356501493",
-      "iBooks": "https://books.apple.com/gb/book/the-hydrogen-sonata/id543917639"
+      "Amazon": "https://www.Amazon.co.uk/Hydrogen-Sonata-Culture-Iain-Banks/dp/0356501493",
+      "Apple Books": "https://books.apple.com/gb/book/the-hydrogen-sonata/id543917639"
     }
   },
   {
@@ -76,7 +76,7 @@
     "upvoted": false,
     "upvotes": 1745,
     "stores": {
-      "playStore": "https://play.google.com/store/books/details/Patrick_Rothfuss_The_Name_of_the_Wind?id=BcG2dVRXKukC&hl=en"
+      "Play Store": "https://play.google.com/store/books/details/Patrick_Rothfuss_The_Name_of_the_Wind?id=BcG2dVRXKukC&hl=en"
     }
   },
   {
@@ -91,7 +91,7 @@
     "upvoted": false,
     "upvotes": 1111,
     "stores": {
-      "amazon": "https://www.amazon.co.uk/Search-Lost-Time-Penguin-Classics/dp/0141180315"
+      "Amazon": "https://www.Amazon.co.uk/Search-Lost-Time-Penguin-Classics/dp/0141180315"
     }
   },
   {
@@ -106,7 +106,7 @@
     "upvoted": true,
     "upvotes": 1022,
     "stores": {
-      "iBooks": "https://books.apple.com/gb/book/don-quixote/id1190143157"
+      "Apple Books": "https://books.apple.com/gb/book/don-quixote/id1190143157"
     }
   },
   {
@@ -133,7 +133,7 @@
     "upvoted": false,
     "upvotes": 991,
     "stores": {
-      "amazon": "https://www.amazon.co.uk/Great-Gatsby-Wordsworth-Classics/dp/185326041X"
+      "Amazon": "https://www.Amazon.co.uk/Great-Gatsby-Wordsworth-Classics/dp/185326041X"
     }
   },
   {
@@ -148,8 +148,8 @@
     "upvoted": true,
     "upvotes": 940,
     "stores": {
-      "iBooks": "https://books.apple.com/gb/book/moby-dick/id427802472",
-      "playStore": "https://play.google.com/store/books/details/Herman_Melville_Moby_Dick?id=XV8XAAAAYAAJ&hl=en"
+      "Apple Books": "https://books.apple.com/gb/book/moby-dick/id427802472",
+      "Play Store": "https://play.google.com/store/books/details/Herman_Melville_Moby_Dick?id=XV8XAAAAYAAJ&hl=en"
     }
   },
   {
@@ -164,8 +164,8 @@
     "upvoted": false,
     "upvotes": 909,
     "stores": {
-      "amazon": "https://www.amazon.co.uk/Hamlet-Oxford-Shakespeare-Worlds-Classics/dp/0199535817",
-      "playStore": "https://play.google.com/store/books/details/William_Shakespeare_Hamlet?id=BA9GAAAAcAAJ&hl=en"
+      "Amazon": "https://www.Amazon.co.uk/Hamlet-Oxford-Shakespeare-Worlds-Classics/dp/0199535817",
+      "Play Store": "https://play.google.com/store/books/details/William_Shakespeare_Hamlet?id=BA9GAAAAcAAJ&hl=en"
     }
   },
   {
@@ -180,7 +180,7 @@
     "upvoted": true,
     "upvotes": 839,
     "stores": {
-      "amazon": "https://www.amazon.co.uk/War-Peace-Penguin-Clothbound-Classics/dp/0241265541"
+      "Amazon": "https://www.Amazon.co.uk/War-Peace-Penguin-Clothbound-Classics/dp/0241265541"
     }
   },
   {
@@ -195,8 +195,8 @@
     "upvoted": false,
     "upvotes": 802,
     "stores": {
-      "amazon": "https://www.amazon.co.uk/Odyssey-Penguin-Classics-Homer/dp/0140449116",
-      "playStore": "https://play.google.com/store/books/details/Homer_The_Odyssey?id=zNOmwC1aodEC&hl=en"
+      "Amazon": "https://www.Amazon.co.uk/Odyssey-Penguin-Classics-Homer/dp/0140449116",
+      "Play Store": "https://play.google.com/store/books/details/Homer_The_Odyssey?id=zNOmwC1aodEC&hl=en"
     }
   },
   {
@@ -211,7 +211,7 @@
     "upvoted": true,
     "upvotes": 723,
     "stores": {
-      "playStore": "https://play.google.com/store/books/details/Gabriel_Garcia_Marquez_One_Hundred_Years_of_Solitu?id=RyGVAgAAQBAJ&hl=en"
+      "Play Store": "https://play.google.com/store/books/details/Gabriel_Garcia_Marquez_One_Hundred_Years_of_Solitu?id=RyGVAgAAQBAJ&hl=en"
     }
   },
   {
@@ -226,7 +226,7 @@
     "upvoted": false,
     "upvotes": 749,
     "stores": {
-      "amazon": "https://www.amazon.co.uk/Divine-Comedy-Purgatorio-Paradiso-Classics/dp/0141197498"
+      "Amazon": "https://www.Amazon.co.uk/Divine-Comedy-Purgatorio-Paradiso-Classics/dp/0141197498"
     }
   }
 ]

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link rendering All three stores 1`] = `<div><a href="https://www.Amazon.co.uk/Book-Thief-Markus-Zusak/dp/0552773891">Amazon</a><a href="https://books.apple.com/gb/book/the-book-theif/id1078821147">Apple Books</a><a href="https://play.google.com/store/audiobooks/details/Markus_Zusak_The_Book_Thief?id=AQAAAEDgxmqGmM&amp;hl=en">Play Store</a> <span>Not Available</span></div>`;
+
+exports[`Link rendering Empty stores 1`] = `<div> <span>Not Available</span></div>`;
+
+exports[`Link rendering No stores 1`] = `<div> <span>Not Available</span></div>`;
+
+exports[`Link rendering One store 1`] = `<div><a href="https://books.apple.com/gb/book/the-book-theif/id1078821147">Apple Books</a> <span>Not Available</span></div>`;

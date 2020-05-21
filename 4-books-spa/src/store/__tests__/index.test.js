@@ -1,5 +1,5 @@
-import store, { mutations, getters } from './index';
-import { BOOK_SORTS } from '../constants';
+import store, { mutations, getters } from '../index';
+import { BOOK_SORTS } from '../../constants';
 
 describe('Getters', () => {
     describe('booksSorted', () => {
