@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Getters booksSorted Sort by author Ascending 1`] = `
+Array [
+  Object {
+    "author": "David Eagleman",
+    "id": 2,
+    "published": "2009",
+    "rating": "9.8",
+    "title": "Sum: Forty Tales from the Afterlives",
+  },
+  Object {
+    "author": "Markus Zusak",
+    "id": 1,
+    "published": "2005",
+    "rating": "9.9",
+    "title": "The Book Thief",
+  },
+  Object {
+    "author": "Matt Haig",
+    "id": 3,
+    "published": "2013",
+    "rating": "9.7",
+    "title": "The Humans",
+  },
+]
+`;
+
+exports[`Getters booksSorted Sort by author Descending 1`] = `
+Array [
+  Object {
+    "author": "Matt Haig",
+    "id": 3,
+    "published": "2013",
+    "rating": "9.7",
+    "title": "The Humans",
+  },
+  Object {
+    "author": "Markus Zusak",
+    "id": 1,
+    "published": "2005",
+    "rating": "9.9",
+    "title": "The Book Thief",
+  },
+  Object {
+    "author": "David Eagleman",
+    "id": 2,
+    "published": "2009",
+    "rating": "9.8",
+    "title": "Sum: Forty Tales from the Afterlives",
+  },
+]
+`;
+
+exports[`Getters booksSorted Sort by published Ascending 1`] = `
+Array [
+  Object {
+    "author": "Markus Zusak",
+    "id": 1,
+    "published": "2005",
+    "rating": "9.9",
+    "title": "The Book Thief",
+  },
+  Object {
+    "author": "David Eagleman",
+    "id": 2,
+    "published": "2009",
+    "rating": "9.8",
+    "title": "Sum: Forty Tales from the Afterlives",
+  },
+  Object {
+    "author": "Matt Haig",
+    "id": 3,
+    "published": "2013",
+    "rating": "9.7",
+    "title": "The Humans",
+  },
+]
+`;
+
+exports[`Getters booksSorted Sort by published Descending 1`] = `
+Array [
+  Object {
+    "author": "Matt Haig",
+    "id": 3,
+    "published": "2013",
+    "rating": "9.7",
+    "title": "The Humans",
+  },
+  Object {
+    "author": "David Eagleman",
+    "id": 2,
+    "published": "2009",
+    "rating": "9.8",
+    "title": "Sum: Forty Tales from the Afterlives",
+  },
+  Object {
+    "author": "Markus Zusak",
+    "id": 1,
+    "published": "2005",
+    "rating": "9.9",
+    "title": "The Book Thief",
+  },
+]
+`;
+
+exports[`Getters booksSorted Sort by rating Ascending 1`] = `
+Array [
+  Object {
+    "author": "Matt Haig",
+    "id": 3,
+    "published": "2013",
+    "rating": "9.7",
+    "title": "The Humans",
+  },
+  Object {
+    "author": "David Eagleman",
+    "id": 2,
+    "published": "2009",
+    "rating": "9.8",
+    "title": "Sum: Forty Tales from the Afterlives",
+  },
+  Object {
+    "author": "Markus Zusak",
+    "id": 1,
+    "published": "2005",
+    "rating": "9.9",
+    "title": "The Book Thief",
+  },
+]
+`;
+
+exports[`Getters booksSorted Sort by rating Descending 1`] = `
+Array [
+  Object {
+    "author": "Markus Zusak",
+    "id": 1,
+    "published": "2005",
+    "rating": "9.9",
+    "title": "The Book Thief",
+  },
+  Object {
+    "author": "David Eagleman",
+    "id": 2,
+    "published": "2009",
+    "rating": "9.8",
+    "title": "Sum: Forty Tales from the Afterlives",
+  },
+  Object {
+    "author": "Matt Haig",
+    "id": 3,
+    "published": "2013",
+    "rating": "9.7",
+    "title": "The Humans",
+  },
+]
+`;
+
+exports[`Getters booksSorted Sort by title Ascending 1`] = `
+Array [
+  Object {
+    "author": "David Eagleman",
+    "id": 2,
+    "published": "2009",
+    "rating": "9.8",
+    "title": "Sum: Forty Tales from the Afterlives",
+  },
+  Object {
+    "author": "Markus Zusak",
+    "id": 1,
+    "published": "2005",
+    "rating": "9.9",
+    "title": "The Book Thief",
+  },
+  Object {
+    "author": "Matt Haig",
+    "id": 3,
+    "published": "2013",
+    "rating": "9.7",
+    "title": "The Humans",
+  },
+]
+`;
+
+exports[`Getters booksSorted Sort by title Descending 1`] = `
+Array [
+  Object {
+    "author": "Matt Haig",
+    "id": 3,
+    "published": "2013",
+    "rating": "9.7",
+    "title": "The Humans",
+  },
+  Object {
+    "author": "Markus Zusak",
+    "id": 1,
+    "published": "2005",
+    "rating": "9.9",
+    "title": "The Book Thief",
+  },
+  Object {
+    "author": "David Eagleman",
+    "id": 2,
+    "published": "2009",
+    "rating": "9.8",
+    "title": "Sum: Forty Tales from the Afterlives",
+  },
+]
+`;

@@ -1,0 +1,1 @@
+export { sortByTextProperty } from './sorts';
