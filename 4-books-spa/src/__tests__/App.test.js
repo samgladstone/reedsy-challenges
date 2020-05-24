@@ -2,25 +2,26 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import App from '@/App.vue';
 import BookRow from '@/components/BookRow.vue';
+import BooksSort from '@/components/BooksSort.vue';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-let store, booksSorted, booksSortedGetter;
+let store, page, pageGetter;
 
 beforeEach(() => {
-    booksSorted = [
+    page = [
         { id: 1 },
         { id: 3 },
         { id: 2 },
         { id: 5 },
     ];
 
-    booksSortedGetter = jest.fn().mockReturnValue(booksSorted)
+    pageGetter = jest.fn().mockReturnValue(page)
 
     store = new Vuex.Store({
         getters: {
-            booksSorted: booksSortedGetter
+            page: pageGetter
         }
     })
 })
@@ -34,8 +35,8 @@ const factory = () => {
 test('The books list is correctly added', () => {
     const wrapper = factory();
 
-    expect(booksSortedGetter).toBeCalledTimes(1);
-    expect(wrapper.vm.books).toBe(booksSorted);
+    expect(pageGetter).toBeCalledTimes(1);
+    expect(wrapper.vm.page).toBe(page);
 });
 
 test('The correct books are rendered', () => {
@@ -46,4 +47,8 @@ test('The correct books are rendered', () => {
     expect(wrappers.at(1).vm.bookId).toBe(3);
     expect(wrappers.at(2).vm.bookId).toBe(2);
     expect(wrappers.at(3).vm.bookId).toBe(5);
+});
+
+test('Sort functionality is included', () => {
+    expect(factory().findComponent(BooksSort).exists()).toBe(true);
 });

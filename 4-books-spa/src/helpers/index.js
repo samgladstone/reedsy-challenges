@@ -1,1 +1,1 @@
-export { sortByTextProperty } from './sorts';
+export { sortByTextProperty, sortByTextYearProperty } from './sorts';

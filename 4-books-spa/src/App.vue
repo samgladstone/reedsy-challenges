@@ -1,32 +1,36 @@
 <template>
     <div id="container">
         <h1>Most popular Books of All time</h1>
-        <table>
-            <thead>
-                <th>Title</th>
-                <th class="published">Published</th>
-                <th>Rating</th>
-                <th class="store-urls">Buy On</th>
-            </thead>
-            <BookRow v-for="book in books"
-                     :key="book.id"
-                     :book-id="book.id">
-            </BookRow>
-        </table>
+        <div class="table-wrapper">
+            <BooksSort></BooksSort>
+            <table>
+                <thead>
+                    <th>Title</th>
+                    <th class="published">Published</th>
+                    <th>Rating</th>
+                    <th class="store-urls">
+                        <span>Buy On</span>
+                    </th>
+                </thead>
+                <BookRow v-for="book in page"
+                         :key="book.id"
+                         :book-id="book.id">
+                </BookRow>
+            </table>
+        </div>
     </div>
 </template>
 
 <script>
     import { mapGetters } from 'vuex';
     import BookRow from './components/BookRow';
+    import BooksSort from './components/BooksSort';
 
     export default {
         name: 'App',
-        components: { BookRow },
+        components: { BookRow, BooksSort },
         computed: {
-            ...mapGetters({
-                books: 'booksSorted',
-            }),
+            ...mapGetters(['page']),
         },
     };
 </script>
@@ -38,6 +42,10 @@
         margin: 0 auto;
         padding: 1em;
         border-radius: 0.5em;
+
+        & .table-wrapper {
+            position: relative;
+        }
 
         & h1 {
             margin: 0 0 1em 0;

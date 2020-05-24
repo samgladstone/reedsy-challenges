@@ -1,6 +1,6 @@
 <template>
     <div class="book-details">
-        <img :src="require(imageUrl)"
+        <img :src="coverImage"
              :alt="`Cover for ${book.title}`" />
         <div class="text">
             <div>
@@ -32,8 +32,8 @@
             },
         },
         computed: {
-            imageUrl() {
-                return `../images/${this.book.cover}`;
+            coverImage() {
+                return require(`@/images/${this.book.cover}`);
             },
             ...mapState({
                 book(state) {
