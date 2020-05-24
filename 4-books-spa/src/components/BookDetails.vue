@@ -1,7 +1,9 @@
 <template>
     <div class="book-details">
-        <img :src="coverImage"
-             :alt="`Cover for ${book.title}`" />
+        <div class="image-wrapper">
+            <img :src="coverImage"
+                 :alt="`Cover for ${book.title}`" />
+        </div>
         <div class="text">
             <div>
                 <h2>{{book.title}}</h2>
@@ -35,6 +37,9 @@
             coverImage() {
                 return require(`@/images/${this.book.cover}`);
             },
+            coverImageDimensions() {
+                return this.coverImage.height;
+            },
             ...mapState({
                 book(state) {
                     return state.books[this.bookId];
@@ -48,10 +53,18 @@
     .book-details {
         display: flex;
 
-        & img {
+        .image-wrapper {
             width: 4.7 * $tablePadding;
-            border-radius: 0.5em;
+            height: 7 * $tablePadding;
             margin-right: $tablePadding;
+            overflow: hidden;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                border-radius: 0.5em;
+                margin: auto;
+            }
         }
 
         & .text {

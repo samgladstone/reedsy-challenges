@@ -17,6 +17,7 @@
                          :book-id="book.id">
                 </BookRow>
             </table>
+            <BooksPager></BooksPager>
         </div>
     </div>
 </template>
@@ -24,11 +25,12 @@
 <script>
     import { mapGetters } from 'vuex';
     import BookRow from './components/BookRow';
+    import BooksPager from './components/BooksPager';
     import BooksSort from './components/BooksSort';
 
     export default {
         name: 'App',
-        components: { BookRow, BooksSort },
+        components: { BookRow, BooksPager, BooksSort },
         computed: {
             ...mapGetters(['page']),
         },
@@ -38,7 +40,6 @@
 <style lang="scss" scoped>
     #container {
         background-color: white;
-        min-height: 90vh;
         margin: 0 auto;
         padding: 1em;
         border-radius: 0.5em;

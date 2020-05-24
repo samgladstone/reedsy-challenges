@@ -90,6 +90,8 @@ See [Book Requests Porter](3-book-requests-porter).
 
 See [Books SPA](4-books-spa).
 
+NB: You can duplicate the books in `/src/store/books.json` to see the paging working with many pages.
+
 ## 5. Bonus Question
 
 > When multiple users are collaborating on a document, collisions in their edits inevitably occur. Implement a module that can handle basic text update operations, and combine two colliding edits into a single operation.

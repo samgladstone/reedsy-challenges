@@ -2,6 +2,8 @@ import store, { mutations, getters } from '../index';
 import { BOOK_SORTS } from '@/constants';
 import { sortByTextProperty, sortByTextYearProperty } from '@/helpers';
 
+let mockBooksSorted = bookCount => new Array(bookCount).fill('').map((n, i) => ({ id: i, title: 'avc' }));
+
 describe('Getters', () => {
     describe('booksSorted', () => {
         let sortFn, sortDescGet;
@@ -67,8 +69,6 @@ describe('Getters', () => {
             });
         });
     });
-
-    let mockBooksSorted = bookCount => new Array(bookCount).fill('').map(n => ({ title: 'avc' }));
 
     describe('booksPage', () => {
         let mockPage = (pageNumber, booksSorted) => getters.page({ pageNumber }, { booksSorted });
@@ -192,6 +192,62 @@ describe('Getters', () => {
 });
 
 describe('Mutations', () => {
+    describe('changePage', () => {
+        let changePage, mockState;
+
+        beforeAll(() => { changePage = mutations.changePage });
+        beforeEach(() => {
+            mockState = {
+                pageNumber: 1,
+                books: mockBooksSorted(50).reduce((all, b) => ({ ...all, [b.id]: b }), {})
+            }
+        });
+
+        test('The page number is set', () => {
+            changePage(mockState, { pageNumber: 1 });
+            expect(mockState.pageNumber).toBe(1);
+            changePage(mockState, { pageNumber: 2 });
+            expect(mockState.pageNumber).toBe(2);
+            changePage(mockState, { pageNumber: 5 });
+            expect(mockState.pageNumber).toBe(5);
+            changePage(mockState, { pageNumber: 9 });
+            expect(mockState.pageNumber).toBe(9);
+            changePage(mockState, { pageNumber: 10 }); // Maxmimum page is 10
+            expect(mockState.pageNumber).toBe(10);
+        });
+
+        test('The page number cannot be set to less than 0', () => {
+            const err = 'Cannot go below page 1.';
+            expect(() => changePage(mockState, { pageNumber: 1 })).not.toThrow(err);
+            expect(() => changePage(mockState, { pageNumber: 0 })).toThrow(err);
+            expect(() => changePage(mockState, { pageNumber: -1 })).toThrow(err);
+            expect(() => changePage(mockState, { pageNumber: -1000 })).toThrow(err);
+        });
+
+        test('The page number cannot be higher than the total pages', () => {
+            const err = 'Cannot go beyond the last page.';
+            expect(() => changePage(mockState, { pageNumber: 10 })).not.toThrow(err);
+            expect(() => changePage(mockState, { pageNumber: 11 })).toThrow(err);
+            expect(() => changePage(mockState, { pageNumber: 12 })).toThrow(err);
+            expect(() => changePage(mockState, { pageNumber: 500 })).toThrow(err);
+        });
+
+        test('A page number must be included', () => {
+            const err = 'A new page number is required.';
+            expect(() => changePage(mockState, {})).toThrow(err);
+            expect(() => changePage(mockState, { pageNumber: null })).toThrow(err);
+            expect(() => changePage(mockState, { pageNumber: undefined })).toThrow(err);
+            expect(() => changePage(mockState, { pageNumber: '' })).toThrow(err);
+        });
+
+        test('Page number must be a number', () => {
+            const err = 'The page number must be an integer.';
+            expect(() => changePage(mockState, { pageNumber: true })).toThrow(err);
+            expect(() => changePage(mockState, { pageNumber: 'abc' })).toThrow(err);
+            expect(() => changePage(mockState, { pageNumber: 1.1 })).toThrow(err);
+        });
+    });
+
     describe('changeSort', () => {
         let changeSort, mockState;
 

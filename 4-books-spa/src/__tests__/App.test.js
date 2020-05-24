@@ -2,6 +2,7 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import App from '@/App.vue';
 import BookRow from '@/components/BookRow.vue';
+import BooksPager from '@/components/BooksPager.vue';
 import BooksSort from '@/components/BooksSort.vue';
 
 const localVue = createLocalVue();
@@ -47,6 +48,10 @@ test('The correct books are rendered', () => {
     expect(wrappers.at(1).vm.bookId).toBe(3);
     expect(wrappers.at(2).vm.bookId).toBe(2);
     expect(wrappers.at(3).vm.bookId).toBe(5);
+});
+
+test('Paging functionality is included', () => {
+    expect(factory().findComponent(BooksPager).exists()).toBe(true);
 });
 
 test('Sort functionality is included', () => {

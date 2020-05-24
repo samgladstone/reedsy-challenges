@@ -1,5 +1,6 @@
 <template>
-    <tbody>
+    <tbody @click="showSynopsis = !showSynopsis"
+           :title="rowTitle">
         <tr>
             <td class="details">
                 <BookDetails :book-id="bookId"></BookDetails>
@@ -10,6 +11,14 @@
                 <StoreUrls :book-id="bookId"></StoreUrls>
             </td>
         </tr>
+        <transition name="slide-out">
+            <tr v-if="showSynopsis">
+                <td colspan="4">
+                    <div class="synopsis"
+                         v-html="synopsis"></div>
+                </td>
+            </tr>
+        </transition>
     </tbody>
 </template>
 
@@ -30,7 +39,19 @@
                 required: true,
             },
         },
+        data: () => ({ showSynopsis: false }),
         computed: {
+            rowTitle() {
+                return `${this.showSynopsis ? 'Hide' : 'Show'} the synopsis for ${
+                    this.book.title
+                }.`;
+            },
+            synopsis() {
+                const { synopsis, title } = this.book;
+                return synopsis
+                    .replace(/\n/, '<br><br>')
+                    .replace(new RegExp(title, 'g'), `<b>${title}</b>`);
+            },
             ...mapState({
                 book(state) {
                     return state.books[this.bookId];
@@ -42,11 +63,12 @@
 
 <style lang="scss" scoped>
     tbody {
+        cursor: pointer;
         &:nth-child(even) {
             background-color: #faf9f7;
         }
 
-        & tr td {
+        tr td {
             padding: $tablePadding;
             vertical-align: top;
             text-align: center;
@@ -71,11 +93,12 @@
     }
 
     tbody tr {
-        & td.store-urls,
+        td.store-urls,
         td.published {
             display: none;
         }
     }
+
     @media (min-width: 580px) {
         tbody tr td:not(:first-child) {
             vertical-align: middle;
@@ -91,6 +114,33 @@
     @media (min-width: $publishedBreakpoint) {
         tbody tr td.published {
             display: table-cell;
+        }
+    }
+
+    .slide-out {
+        &-enter-active,
+        &-leave-active {
+            transition: all 0.3s ease;
+
+            .synopsis,
+            td,
+            tr {
+                transition: all 0.3s ease;
+            }
+        }
+
+        &-enter,
+        &-leave-to {
+            opacity: 0;
+
+            td {
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .synopsis {
+                height: 0;
+            }
         }
     }
 </style>
