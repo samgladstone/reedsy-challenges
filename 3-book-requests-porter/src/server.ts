@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 addRouters(app);
 
-app.listen(port, function () {
+app.listen(port, () => {
     console.log('-------------------------------------------');
     console.log();
     console.log('Book Requests Porter started:');

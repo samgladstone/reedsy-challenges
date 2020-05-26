@@ -4,7 +4,7 @@ import { exportJobService, exportTypes } from '../service';
 import JobExport from '../service/JobExport';
 
 const mockResponse = () => {
-    let res: any = {};
+    const res: any = {};
 
     res.send = jest.fn().mockReturnValue(res);
     res.status = jest.fn().mockReturnValue(res);
@@ -29,7 +29,7 @@ test('getExportsList', () => {
 });
 
 describe('postExport', () => {
-    let mockRequest = (bookId?: any, type?: string): Request => ({ body: { bookId, type } }) as Request;
+    const mockRequest = (bookId?: any, type?: string): Request => ({ body: { bookId, type } }) as Request;
 
     test('Returns a 400 if there is not a valid book id', () => {
         [undefined, 1, true].forEach(id => {

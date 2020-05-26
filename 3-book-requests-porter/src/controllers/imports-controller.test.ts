@@ -4,7 +4,7 @@ import { importJobService, importTypes } from '../service';
 import JobImport from '../service/JobImport';
 
 const mockResponse = () => {
-    let res: any = {};
+    const res: any = {};
 
     res.send = jest.fn().mockReturnValue(res);
     res.status = jest.fn().mockReturnValue(res);
@@ -29,7 +29,7 @@ test('getImportList', () => {
 });
 
 describe('postImport', () => {
-    let mockRequest = (bookId?: any, type?: string, url?: any): Request => ({ body: { bookId, type, url } }) as Request;
+    const mockRequest = (bookId?: any, type?: string, url?: any): Request => ({ body: { bookId, type, url } }) as Request;
 
     test('Returns a 400 if there is not a valid book id', () => {
         [undefined, 1, true].forEach(id => {

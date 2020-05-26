@@ -2,7 +2,7 @@ import Job from './Job';
 import JobsByState from './JobsByState';
 
 export default class JobsService {
-    readonly jobs: Array<Job> = [];
+    readonly jobs: Job[] = [];
 
     listJobsByState(): JobsByState {
         return this.jobs.reduce((jobsByState: JobsByState, job: Job): JobsByState => {

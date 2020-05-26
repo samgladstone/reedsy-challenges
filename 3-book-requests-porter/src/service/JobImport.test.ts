@@ -1,6 +1,9 @@
 import JobImport from './JobImport';
 
-let dateMock, defaultDate, createdDate, updatedDate;
+let dateMock;
+let defaultDate;
+let createdDate;
+let updatedDate;
 
 beforeAll(() => {
     defaultDate = new Date(2015, 2, 13, 9, 15, 40, 123);
