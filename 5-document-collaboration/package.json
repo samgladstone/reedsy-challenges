@@ -1,7 +1,23 @@
 {
   "name": "document-collaboration",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src",
   "author": "Sam Gladstone",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "lint": "tslint lint -p ./",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "clearMocks": true
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.3"
+  }
 }
