@@ -40,7 +40,7 @@ describe('postExport', () => {
             expect(res.status).lastCalledWith(400);
 
             expect(res.send).toHaveBeenCalledTimes(1);
-            expect(res.send).lastCalledWith('A book ID is required');
+            expect(res.send).lastCalledWith('A valid book ID is required');
 
             expect(res.json).not.toHaveBeenCalled();
         });
