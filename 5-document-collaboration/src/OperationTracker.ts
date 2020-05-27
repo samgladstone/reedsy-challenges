@@ -1,8 +1,8 @@
 export default class OperationTracker {
     // I figure that working with directly with strings is not great due to them being immutable.
     //
-    // Alternatively, we could split the characters into an array and work with that, but we start 
-    //      at the beginning of the text and work our way in, so the array operations are going to be 
+    // Alternatively, we could split the characters into an array and work with that, but we start
+    //      at the beginning of the text and work our way in, so the array operations are going to be
     //      near the beginning of the array, which seems unecessarily heavy
     //
     // So, I have setteled on building out the array as we go,

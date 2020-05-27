@@ -4,7 +4,9 @@ export default function mockTracker(startingText: string, posStarting?: number, 
     const applier = new OperationTracker(startingText);
     applier.positionStartingText = posStarting || applier.positionStartingText;
     applier.positionWorkingText = posWorking || applier.positionWorkingText;
-    applier.workingText = workingText ? [...workingText] : applier.workingText;
+
+    if (workingText)
+        Array.prototype.splice.apply(applier.workingText, [0, 0, ...workingText]);
 
     return applier;
 };

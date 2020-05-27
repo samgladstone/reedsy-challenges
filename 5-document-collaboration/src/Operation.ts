@@ -8,11 +8,11 @@ export default class Operation {
         this.edits = ensureAllAreEdits(edits);
     }
 
-    apply(string) {
+    apply(initialString) {
         // TODO: Have something that calculates the needed length of the passed in string and errors if its the wrong length
         // It could be done during creation
-        const tracker = this.edits.reduce((tracker, edit) => edit.applyTo(tracker), new OperationTracker(string))
-        return tracker.text;
+        const completeTracker = this.edits.reduce((tracker, edit) => edit.applyTo(tracker), new OperationTracker(initialString))
+        return completeTracker.text;
     }
 
     combine(op: Operation) {
@@ -32,9 +32,9 @@ export default class Operation {
 
     private static _combineEdits(op1: Operation, op2: Operation): Edit[] {
         let indexInOp1 = 0;
-        let op1Length = op1.edits.length;
+        const op1Length = op1.edits.length;
         let indexInOp2 = 0;
-        let op2Length = op2.edits.length;
+        const op2Length = op2.edits.length;
         let op1PositionInStr = 0;
         let op2PositionInStr = 0;
         let combinedPositionInStr = 0;
@@ -49,7 +49,7 @@ export default class Operation {
             let op1Changes: CalculatedOpChanges;
             let op2Changes: CalculatedOpChanges;
 
-            // We skip working on an operation if the other operation is not as far along in the string 
+            // We skip working on an operation if the other operation is not as far along in the string
             const skipOp1 = indexInOp1 === op1Length || op1PositionInStr > op2PositionInStr && !op2Complete;
             const skipOp2 = indexInOp2 === op2Length || op2PositionInStr > op1PositionInStr && !op1Complete;
 
@@ -90,19 +90,17 @@ export default class Operation {
                 // Move the smaller amount of two, the other one will catch up later
                 changes.move = Math.min(op1Move.move || 0, op2Move.move || 0);
 
-                // We could have a problem if one delete is longer than the other 
+                // We could have a problem if one delete is longer than the other
                 if (op1HasDeleteOverlap) {
                     const result = calculateDeleteForOtherOperation(indexInOp1, op1PositionInStr, combinedPositionInStr, changes.delete, op1.edits);
                     indexInOp1 = result.newOpIndex;
                     op1PositionInStr = result.newOpPositionInString;
-                    changes.delete = result.newDeleteCount;
                 }
                 // they cant both have delete overlap
                 else if (op2HasDeleteOverlap) {
                     const result = calculateDeleteForOtherOperation(indexInOp2, op2PositionInStr, combinedPositionInStr, changes.delete, op2.edits);
                     indexInOp2 = result.newOpIndex;
                     op2PositionInStr = result.newOpPositionInString;
-                    changes.delete = result.newDeleteCount;
                 }
 
                 // Ok lets do the insert
@@ -137,7 +135,6 @@ export default class Operation {
                     const result = calculateDeleteForOtherOperation(indexInOp2, op2PositionInStr, combinedPositionInStr, changes.delete, op2.edits);
                     indexInOp2 = result.newOpIndex;
                     op2PositionInStr = result.newOpPositionInString;
-                    changes.delete = result.newDeleteCount;
                 }
             }
             else if (op2Changes) {
@@ -157,7 +154,6 @@ export default class Operation {
                     const result = calculateDeleteForOtherOperation(indexInOp1, op1PositionInStr, combinedPositionInStr, changes.delete, op1.edits);
                     indexInOp1 = result.newOpIndex;
                     op1PositionInStr = result.newOpPositionInString;
-                    changes.delete = result.newDeleteCount;
                 }
             }
 
@@ -215,7 +211,7 @@ const calculateNextOperations = (
 
     let newIndex: number = startIndex;
     let deleteCount: number = 0;
-    let inserts: string[] = [];
+    const inserts: string[] = [];
 
     while (newIndex < maximumLength) {
         const nextOp = edits[newIndex];
@@ -242,13 +238,11 @@ const calculateDeleteForOtherOperation = (
 ): {
     newOpIndex: number;
     newOpPositionInString: number
-    newDeleteCount: number;
 } => {
-    let newOpIndex = indexInOp; 1
-    let newOpPositionInString = opPositionInString; 4
-    let newDeleteCount = deleteCount; 4
+    let newOpIndex = indexInOp;
+    let newOpPositionInString = opPositionInString;
 
-    const deleteToPosition = combinedPositionInStr + newDeleteCount;
+    const deleteToPosition = combinedPositionInStr + deleteCount;
     while (deleteToPosition > newOpPositionInString) {
         const nextOp = edits[newOpIndex];
 
@@ -268,7 +262,7 @@ const calculateDeleteForOtherOperation = (
             throw new Error('Unrecognised operation type');
     }
 
-    return { newOpIndex, newOpPositionInString, newDeleteCount }
+    return { newOpIndex, newOpPositionInString }
 }
 
 const calculateMoveForOneOpearation = (

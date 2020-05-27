@@ -27,7 +27,7 @@ export default class Insert implements Edit {
         // Extra safetey in case of being passed in through API
         if (!edit) return false;
 
-        const insert = (<any>edit).insert;
+        const insert = (edit as any).insert;
         return !!(
             insert === '' ||
             insert &&
@@ -37,6 +37,6 @@ export default class Insert implements Edit {
 
     static createFrom(edit: object): Insert | undefined {
         if (Insert.canBeCreatedFrom(edit))
-            return new Insert((<any>edit).insert);
+            return new Insert((edit as any).insert);
     }
 };

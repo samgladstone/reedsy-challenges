@@ -30,7 +30,7 @@ export default class Delete implements Edit {
         // Extra safetey in case of being passed in through API
         if (!edit) return false;
 
-        const deleteVal = (<any>edit).delete;
+        const deleteVal = (edit as any).delete;
         return !!(
             deleteVal === 0 || // Technically delete: 0 makes sense, alternatively it could be considered an invalid value so skipped
             deleteVal &&
@@ -41,6 +41,6 @@ export default class Delete implements Edit {
 
     static createFrom(edit: object): Delete | undefined {
         if (Delete.canBeCreatedFrom(edit))
-            return new Delete((<any>edit).delete);
+            return new Delete((edit as any).delete);
     }
 };

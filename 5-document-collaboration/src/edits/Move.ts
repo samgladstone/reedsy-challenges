@@ -55,7 +55,7 @@ export default class Move implements Edit {
         // Extra safetey in case of being passed in through API
         if (!edit) return false;
 
-        const move = (<any>edit).move;
+        const move = (edit as any).move;
         return !!(
             move === 0 ||
             move &&
@@ -65,6 +65,6 @@ export default class Move implements Edit {
 
     static createFrom(edit: object): Move | undefined {
         if (Move.canBeCreatedFrom(edit))
-            return new Move((<any>edit).move);
+            return new Move((edit as any).move);
     }
 };
