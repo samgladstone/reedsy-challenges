@@ -134,3 +134,39 @@ NB: You can duplicate the books in `/src/store/books.json` to see the paging wor
 > - `npm install` + `npm test`.
 
 See [Document Collaboration](5-document-collaboration).
+
+* I have given an object oriented-solution but, while working on it, I have wondered if a functional solution would be more performant.
+
+* I have assumed that inserting text also moves the caret. For example, inserting `'abc'` at position 6 results in the caret being at position 9 (after the inserted text). It could have been intended that the position should remain 6 and so the caret is still at the start of the inserted text. However, I think that the option I have chosen results in a cleaner implementation. This is because it prioritises modification to the original text rather than to the modification that was just made. This seems sensible to me.
+
+* I have also assumed that it is OK to combine and reorder operations where the application results in the same text. I do recognise that this loses track of the history of the edits (if each individual edit needed to be displayed to a user). For example:
+
+ ```js
+ [{ move: 2 }, { move: 4 }] === [{ move: 6 }];
+
+ [{ delete: 2 }, { delete: 3 }] === [{ delete: 5 }];
+
+ [{ insert: 'abc' }, { delete: 3 }] === [{ delete: 3 }, { insert: 'abc' }];
+
+ [{ insert: 'abc' }, { insert: 'def' }] === [{ insert: 'abcdef' }];
+
+ [{ insert: 'abc' }, { delete: 3 }, { insert: 'def' }] === [{ delete: 3 }, { insert: 'abcdef' }];
+ ```
+
+### Example for `Operation.combine(op1, op2).apply(string) !== Operation.combine(op2, op1).apply(string)`
+
+It strikes me that an ideal solution to this problem would always return the same result, regardless of which operation is applied is the *first* operation. If I think of handling conflicts in GIT and what an automated merge strategy could look like, I don't think that a tool would be useful if the following were true: merging branch B into branch A results in branch A being different to what branch B would be if we merge branch A into it.
+
+So, I think the ideal solution would follow GITs example and present these conflicts to a user, who can manually resolve them.
+
+However, if we are strictly combining the results and cannot ask for human intervention there are several tricky situations:
+1. If one operation tries to insert into a location that the other has deleted. It strikes me that the most sensible way to resolve this issue is to prioritise the delete. As the text either side of the insert has been deleted in one operation, the other operations insert can be discarded as it was only relevant to the deleted text.
+2. When two pieces of text are inserted in the same location. This is difficult to prioritise, so I have tried to merge the text of the inserts where possible, and otherwise prioritised the insert from the initial operation.
+
+### Reflections
+
+This was challenging!! I have written something that works with what the tests I designed for it, so I think it is reasonably robust. That said, I think I may have over complicated it slightly. I would have liked to spend some time:
+1. Breaking up the long function into smaller testable units.
+2. Writing a load of integration tests to try and come up with strange scenarios (if I were to continue implementing this as an actual feature).
+
+I was also hoping to include negative move values, but there is currently no functionality for figuring out how to move over what the other operation inserted in the middle of a negative move (see the failing test). I think to do this, it would be better to reorganise the original operation so that all moves are positive.
